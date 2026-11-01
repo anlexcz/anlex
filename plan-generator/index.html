@@ -19,15 +19,24 @@
         <h2>Výhled směn</h2>
         <details class="bulk" open>
           <summary>Hromadné vložení</summary>
-          <p class="hint">Jeden řádek = jedna směna. Formát: <code>datum;L/P;od;do;změna</code>. Časy mohou zůstat prázdné, změna je <code>1</code> nebo <code>0</code>.</p>
-          <textarea id="bulkInput" rows="7" spellcheck="false" placeholder="02.11.2026;25/1;07:13;14:54;1&#10;07.11.2026;9/5;14:27;23:48;0"></textarea>
+          <p class="hint">Jeden řádek = jeden výkon. Formát: <code>datum;L/P;od;do;změna</code>. Stejné datum se v náhledu automaticky seskupí do jednoho dne.</p>
+          <textarea id="bulkInput" rows="7" spellcheck="false" placeholder="02.11.2026;25/1;07:13;14:54;1&#10;03.11.2026;24/3;06:28;07:05;0&#10;03.11.2026;24/8;07:19;13:13;0"></textarea>
           <div class="bulk-actions"><button id="bulkImport">Vložit směny</button><label class="replace"><input id="bulkReplace" type="checkbox"> nahradit stávající</label></div>
           <div id="bulkStatus" class="status compact">Připraveno k vložení.</div>
         </details>
         <div id="entries"></div>
-        <button id="addEntry" class="secondary">+ Přidat směnu</button>
+        <button id="addEntry" class="secondary">+ Přidat výkon</button>
       </div>
-      <div class="preview-wrap"><div class="story" id="outlookStory"><div class="story-kicker">VÝHLED</div><div id="storyEntries"></div><div class="story-brand">A N L E X</div></div></div>
+      <div class="preview-wrap">
+        <div class="story outlook-story" id="outlookStory">
+          <div class="outlook-head">
+            <div class="story-kicker">VÝHLED SMĚN</div>
+            <div class="story-period" id="storyPeriod">—</div>
+          </div>
+          <div id="storyEntries"></div>
+          <div class="story-brand">A N L E X</div>
+        </div>
+      </div>
     </section>
 
     <section id="vjr" class="panel">
