@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ANLEX · Generátor plánů</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header><span class="brand">A N L E X</span><h1>Generátor plánů</h1><p>První funkční prototyp pro Story 9:16.</p></header>
+    <nav class="tabs"><button class="tab active" data-tab="outlook">Výhled</button><button class="tab" data-tab="vjr">Vozák</button></nav>
+
+    <section id="outlook" class="panel active">
+      <div class="controls">
+        <h2>Výhled směn</h2>
+        <div id="entries"></div>
+        <button id="addEntry" class="secondary">+ Přidat směnu</button>
+      </div>
+      <div class="preview-wrap"><div class="story" id="outlookStory"><div class="story-kicker">VÝHLED</div><div id="storyEntries"></div><div class="story-brand">A N L E X</div></div></div>
+    </section>
+
+    <section id="vjr" class="panel">
+      <div class="controls">
+        <h2>Vozový jízdní řád</h2>
+        <label class="upload">Nahrát TXT<input id="vjrFile" type="file" accept=".txt,text/plain"></label>
+        <p class="hint">Parser načte hlavičku a jednotlivé bloky jízd. Číslo spoje ignoruje.</p>
+        <div id="parseStatus" class="status">Zatím není nahrán vozák.</div>
+      </div>
+      <div class="preview-wrap"><div class="story" id="vjrStory"><div class="story-kicker" id="vjrDate">VOZÁK</div><div class="duty" id="vjrDuty">—</div><div class="rides" id="rides"></div><div class="story-brand">A N L E X</div></div></div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
